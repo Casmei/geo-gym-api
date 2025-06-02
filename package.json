@@ -15,7 +15,9 @@
   "dependencies": {
     "@prisma/client": "6.8.2",
     "@rocketseat/eslint-config": "2.2.2",
+    "@types/bcryptjs": "2.4.6",
     "@types/node": "22.15.29",
+    "bcryptjs": "3.0.2",
     "dotenv": "16.5.0",
     "eslint": "9.28.0",
     "fastify": "5.3.3",
