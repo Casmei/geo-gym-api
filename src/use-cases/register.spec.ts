@@ -56,7 +56,7 @@ describe("Register Use Case", () => {
       password: "123456",
     });
 
-    expect(() => registerUseCasePromise).rejects.toBeInstanceOf(
+    await expect(() => registerUseCasePromise).rejects.toBeInstanceOf(
       UserAlreadyExistsError,
     );
   });
