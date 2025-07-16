@@ -1,13 +1,11 @@
 import { prisma } from "@/lib/prisma";
+import type { UsersRepository } from "@/repositories/users-repository";
 import { hash } from "bcryptjs";
 
 export class RegisterUseCase {
-  // biome-ignore lint/suspicious/noExplicitAny: Vai falar disso nas próximas aulas
-  constructor(private usersRepository: any) {}
+  constructor(private usersRepository: UsersRepository) {}
   async execute({ email, name, password }: RegisterUseCaseRequest) {
-    const userWithSameEamil = await prisma.user.findUnique({
-      where: { email },
-    });
+    const userWithSameEamil = await this.usersRepository.findByEmail(email);
 
     if (userWithSameEamil) {
       throw new Error("Email already exists");
