@@ -6,7 +6,7 @@ interface GetUserProfileUseCaseRequest {
   userId: string;
 }
 
-type GetUserProfileUseCaseResponse = { user: User };
+type GetUserProfileUseCaseResponse = { user: Omit<User, "passoword_hash"> };
 
 export class GetUserProfileUseCase {
   constructor(private usersRepository: UsersRepository) {}
@@ -19,7 +19,8 @@ export class GetUserProfileUseCase {
     if (!user) {
       throw new ResourceNotFoundError();
     }
+    const { passoword_hash, ...publicUser } = user;
 
-    return { user };
+    return { user: publicUser };
   }
 }

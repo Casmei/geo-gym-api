@@ -16,6 +16,7 @@
     "build": "tsup src --out-dir build"
   },
   "dependencies": {
+    "@fastify/jwt": "9.1.0",
     "@prisma/client": "6.8.2",
     "@rocketseat/eslint-config": "2.2.2",
     "@types/bcryptjs": "2.4.6",
