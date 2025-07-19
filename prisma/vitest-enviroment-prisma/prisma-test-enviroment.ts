@@ -23,7 +23,6 @@ export default (<Environment>{
     // Criar banco de testes
     const schema = randomUUID();
     const databaseUrl = generateDatabaseUrl(schema);
-    console.log(databaseUrl);
     process.env.DATABASE_URL = databaseUrl;
 
     // Cria as migrations no novo banco
