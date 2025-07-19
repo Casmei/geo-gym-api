@@ -1,5 +1,8 @@
-![README COVER](https://raw.githubusercontent.com/Casmei/gympass-study/refs/heads/main/img/Cover.jpg?token=GHSAT0AAAAAADACLJ2FFTKX5OJMX6W552222D4COOQ)
+![README COVER](./img/Cover.jpg)
 [![Run Unit Tests](https://github.com/Casmei/gympass-study/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/Casmei/gympass-study/actions/workflows/run-unit-tests.yml)
+<a href="https://raw.githubusercontent.com/Casmei/gympass-study/refs/heads/main/insomnia.yaml?token=GHSAT0AAAAAADACLJ2E5W6C6QTWTMD5GQQC2D4GADA" download>
+  <img src="https://img.shields.io/badge/Insomnia-black?logo=insomnia&logoColor=5849BE" alt="Download Insomnia">
+</a>
 # Geo Gym
 This is a simple API for managing gyms and user check-ins based on geolocation.
 
