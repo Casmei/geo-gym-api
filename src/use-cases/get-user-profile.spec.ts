@@ -1,8 +1,8 @@
-import { expect, describe, it, beforeEach } from "vitest";
 import { InMemoryUsersRespository } from "@/repositories/in-memory/in-memory-users-repository";
 import { hash } from "bcryptjs";
-import { GetUserProfileUseCase } from "./get-user-profile";
+import { beforeEach, describe, expect, it } from "vitest";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
+import { GetUserProfileUseCase } from "./get-user-profile";
 
 let usersRepository: InMemoryUsersRespository;
 let sut: GetUserProfileUseCase;
@@ -17,7 +17,7 @@ describe("Get User Profile Use Case", () => {
     const createdUser = await usersRepository.create({
       name: "John Doe",
       email: "johndoe@example.com",
-      passoword_hash: await hash("123456", 6),
+      password_hash: await hash("123456", 6),
       created_at: new Date(),
     });
 
