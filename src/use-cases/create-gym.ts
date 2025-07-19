@@ -1,5 +1,5 @@
-import type { Gym } from "generated/prisma";
 import type { GymsRepository } from "@/repositories/gyms-repository";
+import type { Gym } from "generated/prisma";
 
 interface CreateGymUseCaseRequest {
   title: string;
