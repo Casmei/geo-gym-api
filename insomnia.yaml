@@ -1,0 +1,371 @@
+type: collection.insomnia.rest/5.0
+name: Gym
+meta:
+  id: wrk_ecb35e4cee214453a99ffc044b7dbfad
+  created: 1752932076719
+  modified: 1752932076719
+  description: ""
+collection:
+  - name: User
+    meta:
+      id: fld_feca8f0acd184cf3add18c5f051bacf5
+      created: 1752932085911
+      modified: 1752932085911
+      sortKey: -1752932085911
+      description: ""
+    children:
+      - url: localhost:3333/users
+        name: Register
+        meta:
+          id: req_33a023b195b24bb1845fa2e3ab1703f5
+          created: 1752932089378
+          modified: 1752932142815
+          isPrivate: false
+          description: ""
+          sortKey: -1752932090925
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Tiago de Castro",
+              "email": "casmei.v4@protonmail.com",
+              "password": "by@l123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3333/sessions
+        name: Login
+        meta:
+          id: req_68daf692cfb94a5a9e8405ea4f1cd036
+          created: 1752932127280
+          modified: 1752932151613
+          isPrivate: false
+          description: ""
+          sortKey: -1752932127280
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "casmei.v4@protonmail.com",
+              "password": "by@l123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3333/token/refresh
+        name: Refresh Token
+        meta:
+          id: req_5f3a660ae709465da759c1cd7214c284
+          created: 1752932163164
+          modified: 1752932174558
+          isPrivate: false
+          description: ""
+          sortKey: -1752932127380
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3333/me
+        name: Me
+        meta:
+          id: req_f87dd86fc5f84e928be148d3e3c9bb1a
+          created: 1752932198273
+          modified: 1752932207557
+          isPrivate: false
+          description: ""
+          sortKey: -1752932198274
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Gym
+    meta:
+      id: fld_41cb094efd5e4bb0ab59d18d4164aab9
+      created: 1752966500743
+      modified: 1752966500743
+      sortKey: -1752966500743
+      description: ""
+    children:
+      - url: http://localhost:3333/gyms/search
+        name: Search
+        meta:
+          id: req_bae3b6d5527643b583605449b9cf02f0
+          created: 1752966538758
+          modified: 1752967624338
+          isPrivate: false
+          description: ""
+          sortKey: -1752966538758
+        method: GET
+        parameters:
+          - id: pair_baba63aad6a04713a42b01b39edc3bee
+            name: q
+            value: Gym
+            description: ""
+            disabled: false
+          - id: pair_4c480a6b538241e28ed32bce6694b6f3
+            name: page
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/gyms
+        name: Create
+        meta:
+          id: req_150c923eda724ff9986f855105264388
+          created: 1752966660412
+          modified: 1752967546041
+          isPrivate: false
+          description: ""
+          sortKey: -1752966660412
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Go Gym",
+            	"description": "Some description",
+            	"phone": "33999166432",
+            	"latitude": -16.175336,
+            	"longitude": -40.69287
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/gyms/nearby
+        name: Nearby
+        meta:
+          id: req_9c833fe6368f438696a8f15116c64673
+          created: 1752967641962
+          modified: 1752967921436
+          isPrivate: false
+          description: ""
+          sortKey: -1752949368516
+        method: GET
+        parameters:
+          - id: pair_baba63aad6a04713a42b01b39edc3bee
+            name: latitude
+            value: "-16.175336"
+            description: ""
+            disabled: false
+          - id: pair_4c480a6b538241e28ed32bce6694b6f3
+            name: longitude
+            value: "-41.0095796"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Check-in
+    meta:
+      id: fld_ef9bedfbfae944d8990a3c2cc3959ed5
+      created: 1752967978970
+      modified: 1752967978970
+      sortKey: -1752949293327
+      description: ""
+    children:
+      - url: http://localhost:3333/check-ins/metrics
+        name: Metrics
+        meta:
+          id: req_f620929d37ee4f9488e01ada68f3390c
+          created: 1752967978973
+          modified: 1752968179180
+          isPrivate: false
+          description: ""
+          sortKey: -1752966538758
+        method: GET
+        parameters:
+          - id: pair_71fc62a12c214b7c9d3b86e60287609d
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/check-ins/history
+        name: History
+        meta:
+          id: req_d8b4ceb5dc4c483aa4e34897628f7e4a
+          created: 1752967978974
+          modified: 1752968061186
+          isPrivate: false
+          description: ""
+          sortKey: -1752966660412
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/gyms/34a6b356-6786-4965-b14c-303d640238fa/check-ins
+        name: Nearby
+        meta:
+          id: req_4eab0ad529b049ef988872a99e71e632
+          created: 1752967978975
+          modified: 1752968339833
+          isPrivate: false
+          description: ""
+          sortKey: -1752949368516
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"latitude": -16.175336,
+            	"longitude": -40.69287
+            }
+        parameters:
+          - id: pair_ae4f3548a169423685c62e5a3691c250
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3333/check-ins/977ed820-6727-4e46-9627-ffc2af517684/validate
+        name: Validate
+        meta:
+          id: req_f2546e9f714e4064bc933b7727fcdcb0
+          created: 1752968380322
+          modified: 1752968413491
+          isPrivate: false
+          description: ""
+          sortKey: -1752966660512
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6b8f6a858a7c0d9552f8c9a60c98a4a8bd3a9ab2
+    created: 1752932076721
+    modified: 1752968430795
+  cookies:
+    - key: refreshToken
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJiNDY4NjBjNy0wMjk2LTRjYzUtOTVkMS0yNjU4YzNiYmMzMmYiLCJpYXQiOjE3NTI5Njg0MzAsImV4cCI6MTc1MzU3MzIzMH0.jwWVoIzK0LUBgV7XOR_wbnLwRGKbvASGPlGr4_sME4k
+      domain: localhost
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-07-19T13:35:52.388Z
+      lastAccessed: 2025-07-19T23:40:30.795Z
+      sameSite: strict
+      id: 83425764-fbad-42f3-ac46-b06af1105d0e
+environments:
+  name: Base Environment
+  meta:
+    id: env_6b8f6a858a7c0d9552f8c9a60c98a4a8bd3a9ab2
+    created: 1752932076720
+    modified: 1752967460612
+    isPrivate: false
+  data:
+    token: "{% response 'body', 'req_5f3a660ae709465da759c1cd7214c284',
+      'b64::JC50b2tlbg==::46b', 'when-expired', 60 %}"
