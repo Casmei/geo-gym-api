@@ -1,8 +1,8 @@
-import { expect, describe, it, beforeEach, vi, afterEach } from "vitest";
 import { InMemoryCheckInsRespository } from "@/repositories/in-memory/in-memory-check-ins-repository";
-import { CheckInUseCase } from "./check-in";
 import { InMemoryGymsRespository } from "@/repositories/in-memory/in-memory-gyms-repository";
 import { Decimal } from "@prisma/client/runtime/library";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { CheckInUseCase } from "./check-in";
 import { MaxDistanceError } from "./errors/max-distance-error";
 import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins-error";
 
@@ -14,8 +14,6 @@ describe("Check-in Use Case", () => {
   beforeEach(async () => {
     checkInsRepository = new InMemoryCheckInsRespository();
     gymsRepository = new InMemoryGymsRespository();
-    gymsRepository = new InMemoryGymsRespository();
-
     sut = new CheckInUseCase(checkInsRepository, gymsRepository);
 
     await gymsRepository.create({
@@ -35,6 +33,17 @@ describe("Check-in Use Case", () => {
   });
 
   it("should be able to check in", async () => {
+    const { checkIn } = await sut.execute({
+      gymId: "gym-01",
+      userId: "user-01",
+      userLatitude: -16.1803162,
+      userLongitude: -40.68543,
+    });
+
+    expect(checkIn.id).toEqual(expect.any(String));
+  });
+
+  it("should not be able to check in", async () => {
     const { checkIn } = await sut.execute({
       gymId: "gym-01",
       userId: "user-01",
