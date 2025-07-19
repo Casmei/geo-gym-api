@@ -1,8 +1,8 @@
-import { expect, describe, it, beforeEach } from "vitest";
-import { RegisterUseCase } from "./register";
-import { compare } from "bcryptjs";
 import { InMemoryUsersRespository } from "@/repositories/in-memory/in-memory-users-repository";
+import { compare } from "bcryptjs";
+import { beforeEach, describe, expect, it } from "vitest";
 import { UserAlreadyExistsError } from "./errors/user-already-exists-error";
+import { RegisterUseCase } from "./register";
 
 let usersRepository: InMemoryUsersRespository;
 let sut: RegisterUseCase;
@@ -34,7 +34,7 @@ describe("Register Use Case", () => {
 
     const isPasswordCorrectlyHashed = await compare(
       password,
-      user.passoword_hash,
+      user.password_hash,
     );
 
     expect(isPasswordCorrectlyHashed).toBe(true);
