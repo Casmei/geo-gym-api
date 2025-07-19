@@ -1,4 +1,4 @@
-![README COVER](https://raw.githubusercontent.com/Casmei/gympass-study/refs/heads/main/img/Cover.jpg?token=GHSAT0AAAAAADACLJ2E6J3WSWAGFQRZKRNW2D32BSA)
+![README COVER](https://raw.githubusercontent.com/Casmei/gympass-study/refs/heads/main/img/Cover.jpg?token=GHSAT0AAAAAADACLJ2FHX77B24ABP4LIRZ62D32TUA)
 
 # Geo Gym
 This is a simple API for managing gyms and user check-ins based on geolocation.
