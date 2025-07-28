@@ -1,5 +1,6 @@
 ![README COVER](./img/Cover.jpg)
 [![Run Unit Tests](https://github.com/Casmei/gympass-study/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/Casmei/gympass-study/actions/workflows/run-unit-tests.yml)
+![Unit Testing Coverage](badge.svg)
 [![Download Insomnia](https://img.shields.io/badge/Insomnia-black?logo=insomnia&logoColor=5849BE)](https://github.com/Casmei/gympass-study/raw/main/insomnia.yaml)
 
 # Geo Gym
