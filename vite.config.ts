@@ -24,7 +24,7 @@ export default defineConfig({
       },
     ],
     coverage: {
-      reporter: ["text", "lcov", "html"],
+      reporter: ["text", "lcov", "html", "json-summary"],
       include: ["src/use-cases/**/*.ts"],
       exclude: [
         "src/env/*.ts",
