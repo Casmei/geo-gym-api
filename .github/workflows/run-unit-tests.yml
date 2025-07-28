@@ -6,6 +6,8 @@ jobs:
     run-unit-tests:
         name: Run Unit Tests
         runs-on: ubuntu-latest
+        permissions:
+          contents: write # needed to commit the changes
 
         steps:
             - uses: actions/checkout@v3
